@@ -8,8 +8,8 @@ matrix:
         - cargo install --debug --force rustfmt-nightly
       script:
         - cargo fmt -- --check
-        - echo "COMPLETE!"
-        - ls
+        - cargo build
+        - cargo run
   fast_finish: true
 
 # Caching
