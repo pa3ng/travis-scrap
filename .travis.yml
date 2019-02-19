@@ -18,6 +18,10 @@ matrix:
         - cargo run
   fast_finish: true
 
+# global install
+install:
+  - cargo install --debug --force rustfmt
+
 # Caching
 cache:
   directories:
