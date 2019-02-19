@@ -1,0 +1,8 @@
+[package]
+name = "travis-scrap"
+version = "0.1.0"
+
+[dependencies]
+clap = "2"
+protobuf = "2"
+cfg-if = "0.1"
