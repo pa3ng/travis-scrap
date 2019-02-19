@@ -1,0 +1,11 @@
+[package]
+name = "travis-scrap"
+version = "0.1.0"
+
+[[bin]]
+name = "scrap"
+path = "src/main.rs"
+
+[dependencies]
+clap = "2"
+protobuf = "2"
