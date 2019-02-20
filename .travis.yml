@@ -1,15 +1,13 @@
 language: rust
 matrix:
   include:
-    - os: linux
-      rust: nightly
+    - rust: nightly
       # skip the global install step
       install:
         - cargo install --debug --force rustfmt-nightly
       script:
         - cargo fmt -- --check
-    - os: linux
-      rust: stable
+    - rust: stable
       script:
         - cargo +nightly fmt -- -f
   fast_finish: true
