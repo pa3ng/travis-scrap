@@ -4,8 +4,8 @@ matrix:
     - os: linux
       rust: nightly
       # skip the global install step
-      # install:
-      #   - cargo install --debug --force rustfmt-nightly
+      install:
+        - cargo install --debug --force rustfmt-nightly
       script:
         - cargo fmt -- --check
     - os: linux
@@ -16,7 +16,8 @@ matrix:
 
 # global install
 install:
-  - cargo install --debug --force rustfmt-nightly
+  - rustup toolchain install nightly
+  - rustup component add rustfmt-preview --toolchain=nightly
 
 # Caching
 cache:
