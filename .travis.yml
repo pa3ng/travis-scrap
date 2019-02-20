@@ -3,19 +3,20 @@ matrix:
   include:
     - os: linux
       rust: nightly
+      # skip the global install step
+      install:
+        - cargo install --debug --force rustfmt-nightly
       script:
         - cargo fmt -- --check
-        - echo "SUCCESS!"
     - os: linux
       rust: stable
       script:
-        - cargo fmt -- --check
-        - echo "SUCCESS!"
+        - cargo +nightly fmt -- -f
   fast_finish: true
 
 # global install
-install:
-  - cargo install --debug --force rustfmt-nightly
+# install:
+#   - cargo install --debug --force rustfmt-nightly
 
 # Caching
 cache:
