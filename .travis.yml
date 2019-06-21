@@ -1,26 +1,13 @@
 language: rust
 rust:
   - nightly
-matrix:
-  allow_failures:
-    - rust: nightly
-
-before_script:
-  - rustup override set nightly-2019-06-18-x86_64-apple-darwin
-  - rustup component add clippy --toolchain nightly-2019-06-18-x86_64-apple-darwin
-after_success:
-  - echo "Hello! Testing Travis!!!"
-  - cargo clippy
-  - cargo build --verbose --all
-  - cargo test --verbose --all
-
-# global install
-# install:
-#   - rustup toolchain install nightly
-#   - rustup component add rustfmt-preview --toolchain=nightly
-
-# services:
-# - docker
+install:
+  - rustup component add rustfmt-preview
+  - rustup component add clippy-preview
+script:
+  - cargo fmt -- --check
+  - cargo clippy -- -D warnings
+  - cargo test
 
 # Caching
 cache:
