@@ -5,10 +5,11 @@ matrix:
   allow_failures:
     - rust: nightly
 
-after_success:
-  - echo "Hello! Testing Travis!!!"
+before_script:
   - rustup override set nightly-2019-06-18-x86_64-apple-darwin
   - rustup component add clippy --toolchain nightly-2019-06-18-x86_64-apple-darwin
+after_success:
+  - echo "Hello! Testing Travis!!!"
   - cargo clippy
   - cargo build --verbose --all
   - cargo test --verbose --all
@@ -25,5 +26,3 @@ after_success:
 cache:
   directories:
     - /home/travis/.cargo
-before_cache:
-  - rm -rf /home/travis/.cargo/registry
