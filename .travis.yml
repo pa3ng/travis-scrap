@@ -7,7 +7,7 @@ install:
   - rustup show
 script:
   - cargo fmt -- --check
-  - cargo clippy -- -D warnings
+  - cargo clippy
   - cargo test
 
 # Caching
