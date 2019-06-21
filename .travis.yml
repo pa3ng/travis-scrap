@@ -1,10 +1,9 @@
 language: rust
 rust:
-  - nightly
+  - stable
 install:
-  - rustup override set nightly-2019-06-18-x86_64-apple-darwin # pin nightly version w/ clippy
   - rustup component add rustfmt-preview
-  - rustup component add clippy --toolchain nightly-2019-06-18-x86_64-apple-darwin
+  - rustup component add clippy-preview
   - rustup show
 script:
   - cargo fmt -- --check
