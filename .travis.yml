@@ -1,21 +1,23 @@
 language: rust
+rust:
+  - nightly
 matrix:
-  include:
+  allow_failures:
     - rust: nightly
-      # skip the global install step
-      install:
-        - cargo install --debug --force rustfmt-nightly
-      script:
-        - cargo fmt -- --check
-    - rust: stable
-      script:
-        - cargo +nightly fmt -- -f
   fast_finish: true
 
+script:
+  - echo "Hello! Testing Travis!!!"
+  - cargo build --verbose --all
+  - cargo test --verbose --all
+
 # global install
-install:
-  - rustup toolchain install nightly
-  - rustup component add rustfmt-preview --toolchain=nightly
+# install:
+#   - rustup toolchain install nightly
+#   - rustup component add rustfmt-preview --toolchain=nightly
+
+# services:
+# - docker
 
 # Caching
 cache:
